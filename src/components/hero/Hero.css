@@ -1,0 +1,149 @@
+.hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    overflow:hidden;
+    padding-inline:6rem;
+    user-select: none;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(
+        circle at top,
+        rgba(139,92,246,0.18),
+        transparent 35%
+    ),
+    radial-gradient(
+        circle at bottom right,
+        rgba(56,189,248,0.14),
+        transparent 30%
+    );
+    pointer-events:none;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:1rem;
+    text-align:left;
+}
+
+.hero-title{
+    font-size:clamp(3rem,7vw,6rem);
+    font-weight:400;
+    line-height:0.92;
+    letter-spacing:-0.05em;
+}
+
+.hero-description{
+    max-width:580px;
+    font-size:1.1rem;
+    font-weight:400;
+    line-height:1.8;
+    color:var(--text-secondary);
+}
+
+.hero-background{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    opacity:0.7;
+    pointer-events:none;
+}
+
+.hero-glow{
+    position:absolute;
+    top:50%;
+    left:65%;
+    width:60rem;
+    height:60rem;
+    border-radius:50%;
+    background:
+    radial-gradient(
+        circle,
+        rgba(139,92,246,0.18),
+        transparent 70%
+    );
+    transform:translate(-50%,-50%);
+    filter:blur(80px);
+    z-index:0;
+}
+
+.hero-scroll{
+    position:absolute;
+    bottom:2.5rem;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.5rem;
+    font-size:0.8rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.45);
+    animation: scroll 3s linear infinite;
+}
+
+.hero-scroll::after{
+    content: "";
+    width: 1.5px;
+    height: 3rem;
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.7),
+        transparent
+    );
+}
+
+@keyframes scroll {
+    0%{
+        transform:translateY(0);
+        opacity:1;
+    }
+    50%{
+        transform:translateY(20px);
+        opacity:0.5;
+    }
+    100%{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+@media (max-width:768px){
+
+    .hero{
+        justify-content:center;
+        padding-inline:1.5rem;
+    }
+
+    .hero-content{
+        align-items:center;
+        text-align:center;
+    }
+
+    .hero-title{
+        font-size:clamp(3.5rem,18vw,6rem);
+    }
+
+    .hero-description{
+        font-size:1rem;
+        line-height:1.7;
+    }
+
+    .hero-glow{
+        left:50%;
+    }
+
+}
