@@ -14,7 +14,7 @@ export default function Navbar() {
                 </li>
 
                 <li className="navbar-item">
-                    <a href="#fractals" className="navbar-link">
+                    <a href="#fractals-catalog" className="navbar-link">
                         Explore Fractals
                     </a>
                 </li>

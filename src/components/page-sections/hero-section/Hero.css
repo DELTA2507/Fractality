@@ -81,17 +81,30 @@
 .hero-scroll{
     position:absolute;
     bottom:2.5rem;
-    left:50%;
-    transform:translateX(-50%);
+
+    left:0;
+    right:0;
+
+    margin-inline:auto;
+
     display:flex;
     flex-direction:column;
     align-items:center;
+    justify-content:center;
+
+    width:max-content;
+
     gap:0.5rem;
+
     font-size:0.8rem;
     letter-spacing:0.12em;
     text-transform:uppercase;
+
+    text-align:center;
+
     color:rgba(255,255,255,0.45);
-    animation: scroll 3s linear infinite;
+
+    animation:scroll 3s linear infinite;
 }
 
 .hero-scroll::after{
