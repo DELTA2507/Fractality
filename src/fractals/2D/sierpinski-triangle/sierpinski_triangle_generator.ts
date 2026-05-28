@@ -3,7 +3,7 @@ import type {
     Point,
     Triangle
 
-} from "../../../types/geometry"
+} from "../../../types/Geometry"
 
 function get_midpoint(point_a:Point, point_b:Point):Point {
     return {

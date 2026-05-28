@@ -1,6 +1,6 @@
 import type {
     FractalData
-} from "../../../types/fractal"
+} from "../../../types/Fractal"
 
 export const sierpinski_tetrahedron_data:FractalData = {
     max_iterations:8,

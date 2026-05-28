@@ -1,0 +1,44 @@
+.toc {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+
+  border-radius: 1rem;
+
+  background: rgb(255 255 255 / 0.05);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgb(255 255 255 / 0.1);
+
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.toc-title {
+  margin: 0 0 0.5rem;
+
+  font-size: 1.25rem;
+  font-weight: 600;
+
+  color: rgb(245 245 245);
+}
+
+.toc-link {
+  padding-left: 0.5rem;
+
+  color: var(--accent-secondary);
+  text-decoration: none;
+
+  border-left: 2px solid transparent;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.toc-link:hover {
+  color: var(--accent-primary);
+  border-left-color: var(--accent-primary);
+}

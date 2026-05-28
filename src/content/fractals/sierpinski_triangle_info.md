@@ -12,18 +12,11 @@ default_iterations: 5
 
 author: DELTA
 date: 2026-05-26
-tags:
-  - fractal
-  - geometry
-  - recursion
-  - mathematics
 ---
 
 # Sierpinski Triangle
 
 The Sierpinski Triangle is one of the most recognizable recursive fractals in mathematics. It emerges from repeatedly subdividing an equilateral triangle into smaller self-similar triangles.
-
-![Sierpinski Triangle Preview](./preview.png)
 
 ---
 

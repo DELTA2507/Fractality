@@ -20,3 +20,22 @@ export type FractalData = {
     renderer_type:FractalRendererType
     export_types:FractalExportType[]
 }
+
+export type Fractal = {
+    title:string
+    slug:string
+    description:string
+    thumbnail:string
+
+    dimension_type:"2D"|"3D"
+
+    export_types:string[]
+
+    max_iterations:number
+    default_iterations:number
+
+    author:string
+    date:string
+
+    __content:string
+}
