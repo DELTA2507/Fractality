@@ -27,39 +27,35 @@
 
 .fractal-preview-wrapper{
     margin-bottom:4rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    background:rgba(255, 0, 0, 0.03);
+    backdrop-filter:blur(20px);
+    border-radius:2rem;
 }
 
-.fractal-preview{
+.fractal-preview-panel{
     width:100%;
     height:clamp(250px,35vw,450px);
-
-    padding:2rem;
-
-    border-radius:2rem;
-
-    border:
-    1px solid rgba(255,255,255,0.08);
-
-    background:
-    rgba(255,255,255,0.03);
-
-    backdrop-filter:
-    blur(20px);
-
     overflow:hidden;
-
     display:flex;
     align-items:center;
     justify-content:center;
 }
 
-.fractal-preview::before{
-    content:"Interactive Preview";
+.fractal-preview-toolbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-    position:absolute;
-    top:1rem;
-    left:1.25rem;
+    padding:
+    1rem
+    1.25rem;
 
+    border-bottom:
+    1px solid rgba(255,255,255,0.08);
+}
+
+.fractal-preview-label{
     color:
     rgba(255,255,255,0.45);
 
@@ -71,6 +67,79 @@
 
     text-transform:
     uppercase;
+}
+
+.fractal-preview-toolbar-controls{
+    display:flex;
+    align-items:center;
+    gap:0.75rem;
+}
+
+.fractal-preview-toolbar-controls-button{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:1.25rem;
+
+    width:2rem;
+    height:2rem;
+
+    border:none;
+
+    border-radius:0.75rem;
+
+    background:
+    rgba(255,255,255,0.04);
+
+    color:
+    rgba(255,255,255,0.7);
+
+    cursor:pointer;
+
+    transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.fractal-preview-toolbar-controls-button:hover{
+    background:
+    rgba(255,255,255,0.08);
+
+    color:
+    white;
+}
+
+.fractal-controls-container{
+    max-height:0;
+
+    opacity:0;
+
+    overflow:hidden;
+
+    padding-inline:1.5rem;
+
+    padding-block:0;
+
+    border-bottom:
+    1px solid transparent;
+
+    transition:
+        max-height 250ms ease,
+        opacity 200ms ease,
+        padding 250ms ease,
+        border-color 250ms ease;
+}
+
+.fractal-controls-container.open{
+    max-height:300px;
+
+    opacity:1;
+
+    padding-block:1rem;
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.08);
 }
 
 .fractal-preview svg,

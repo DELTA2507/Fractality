@@ -1,13 +1,18 @@
 import "./Fractal.css"
 
+import { Icon } from "@iconify/react"
+import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { marked } from "marked"
 import katex  from "marked-katex-extension"
 
 import TableOfContents from "../../components/elements/table-of-contents/TableOfContents"
+import FractalPreview from "../../components/elements/fractal-preview/FractalPreview"
+import FractalControls from "../../components/elements/fractal-controls/FractalControls"
 
 import { get_fractal } from "../../utils/get_fractal"
 import { get_fractal_entry } from "../../utils/get_fractal_entry"
+import { create_fractal_state } from "../../utils/create_fractal_state"
 
 marked.use(
     katex({
@@ -40,8 +45,8 @@ marked.use({
 })
 
 export default function Fractal(){
-
     const { slug } = useParams()
+    const [show_controls, set_show_controls] = useState(false)
 
     const fractal =
         get_fractal(
@@ -70,6 +75,21 @@ export default function Fractal(){
         marked.parse(
             fractal.__content
         )
+    
+    const [state, set_state] = useState(
+        () => create_fractal_state(
+            entry.controls
+        )
+    )
+    const set_control = (
+        key: string,
+        value: number | string
+    ) => {
+        set_state(prev => ({
+            ...prev,
+            [key]: value
+        }))
+    }
 
     return(
         <main className="fractal-page">
@@ -85,21 +105,47 @@ export default function Fractal(){
                 </div>
 
                 <div className="fractal-preview-wrapper">
+                    <div className="fractal-preview-toolbar">
 
-                    <div className="fractal-preview">
+                        <span className="fractal-preview-label">
+                            Interactive Preview
+                        </span>
 
-                        {
-                            Renderer && (
+                        <div className="fractal-preview-toolbar-controls">
+                            <button
+                                type="button"
+                                className="fractal-preview-toolbar-controls-button"
+                                onClick={() => set_show_controls(!show_controls)}
+                            >
+                                {show_controls ? <Icon icon="mdi:close" /> : <Icon icon="mdi:cog" />}
+                            </button>
+                        </div>
 
-                                <Renderer
-                                    iterations={
-                                        fractal.default_iterations
-                                    }
-                                />
+                    </div>
+                    <div
+                        className={`
+                            fractal-controls-container
+                            ${
+                                show_controls
+                                    ? "open"
+                                    : ""
+                            }
+                        `}
+                    >
 
-                            )
-                        }
+                        <FractalControls
+                            controls={entry.controls}
+                            state={state}
+                            set_control={set_control}
+                        />
 
+                    </div>
+                    <div className="fractal-preview-panel">
+                        <FractalPreview
+                            Renderer={Renderer}
+                            params={state}
+                            dimension_type={entry.dimension_type}
+                        />
                     </div>
 
                 </div>

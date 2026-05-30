@@ -1,21 +1,23 @@
 import type { ComponentType } from "react"
+import type { FractalControl } from "./FractalControl"
 
-export type FractalRendererProps = {
-    iterations:number
-}
+export type FractalRendererProps = Record<
+    string,
+    number | string
+>
 
 export type FractalRegistryEntry = {
-    renderer:ComponentType<FractalRendererProps>
+    renderer: ComponentType<any>
 
-    generator:(
-        iterations:number
-    ) => unknown
+    generator: (...args:any[]) => unknown
 
-    dimension_type:"2D" | "3D"
+    dimension_type: "2D" | "3D"
 
-    supports_svg_export:boolean
+    supports_svg_export: boolean
 
-    supports_png_export:boolean
+    supports_png_export: boolean
+
+    controls: FractalControl[]
 }
 
 export type FractalRegistry = Record<

@@ -7,8 +7,6 @@ dimension_type: 2D
 export_types:
   - SVG
   - PNG
-max_iterations: 8
-default_iterations: 5
 
 author: DELTA
 date: 2026-05-26
