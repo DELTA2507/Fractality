@@ -1,0 +1,76 @@
+.segmented {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+
+    background: var(--surface-glass);
+    border: 1px solid var(--surface-border);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    margin-bottom: 0.75rem;
+}
+
+/* track base */
+.segmented-track {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+}
+
+/* moving pill */
+.segmented-thumb {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    left: 0;
+
+    border-radius: 10px;
+
+    background: rgba(139, 92, 246, 0.18);
+    border: 1px solid var(--glow-primary);
+
+    box-shadow: 0 0 18px var(--glow-primary);
+
+    transition: transform 220ms ease;
+}
+
+/* buttons */
+.segmented-item {
+    position: relative;
+    z-index: 1;
+
+    padding: 0.5rem 0.75rem;
+
+    background: transparent;
+    border: none;
+
+    color: var(--text-secondary);
+
+    font-size: 0.85rem;
+    text-transform: capitalize;
+
+    cursor: pointer;
+
+    transition: color 180ms ease;
+}
+
+.segmented-item:hover {
+    color: var(--text-primary);
+}
+
+.segmented-item.active {
+    color: var(--text-primary);
+}
+
+/* mobile tweak opcional */
+@media (max-width: 768px) {
+    .segmented-item {
+        font-size: 0.8rem;
+        padding: 0.45rem 0.6rem;
+    }
+}

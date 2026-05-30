@@ -1,3 +1,4 @@
+import "./FractalPreview3D.css"
 import type { FractalPreviewBaseProps } from "../../../../types/FractalPreviewBaseProps"
 
 export default function FractalPreview3D({ Renderer, params }: FractalPreviewBaseProps) {

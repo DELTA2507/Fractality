@@ -1,14 +1,16 @@
-import type { FractalControl } from "../types/FractalControl"
+import type { FractalControls } from "../types/FractalRegistryEntry"
+import type { ControlValueMap } from "../types/FractalControl"
 
 export function create_fractal_state(
-    controls: FractalControl[]
+    controls: FractalControls
 ) {
+    const state: Record<string, ControlValueMap[keyof ControlValueMap]> = {}
 
-    return Object.fromEntries(
-        controls.map(control => [
-            control.key,
-            control.default
-        ])
-    )
+    Object.values(controls).forEach(category => {
+        category?.forEach(control => {
+            state[control.key] = control.default
+        })
+    })
 
+    return state
 }

@@ -1,13 +1,23 @@
+export type ControlValueMap = {
+    range: number
+    color: string
+    toggle: boolean
+}
+
+type BaseControl<K extends keyof ControlValueMap> = {
+    key: string
+    type: K
+    default: ControlValueMap[K]
+}
+
 export type FractalControl =
-    | {
-        key: string
-        type: "range"
+    | (BaseControl<"range"> & {
         min: number
         max: number
-        default: number
-    }
-    | {
-        key: string
-        type: "color"
-        default: string
-    }
+    })
+    | BaseControl<"color">
+    | BaseControl<"toggle">
+
+export type ControlState<T extends FractalControl = FractalControl> = {
+    [K in T as K["key"]]: ControlValueMap[K["type"]]
+}

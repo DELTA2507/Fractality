@@ -1,33 +1,126 @@
-.fractal-controls{
-    display:flex;
-    flex-wrap:wrap;
-    gap:1rem;
+.fractal-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 
-    padding:1rem 1.5rem;
+    padding: 1rem 1.5rem;
+
+    background: var(--background-secondary);
+    border: 1px solid var(--surface-border);
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow-large);
 }
 
-.fractal-control{
-    display:flex;
-    align-items:center;
-    gap:0.75rem;
+/* ===== PANEL ===== */
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    padding-top: 0.75rem;
 }
 
-.fractal-control label{
-    color:
-    rgba(255,255,255,0.7);
+/* ===== CONTROL CARD ===== */
 
-    font-size:0.85rem;
+.fractal-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
 
-    text-transform:capitalize;
+    padding: 0.75rem 0.9rem;
+
+    border: 1px solid var(--surface-border);
+    border-radius: 10px;
+
+    background: var(--surface-glass);
+
+    transition: all 180ms ease;
 }
 
-.fractal-control span{
-    min-width:2rem;
+.fractal-control:hover {
+    background: var(--surface-glass-hover);
+    border-color: rgba(139, 92, 246, 0.25);
+}
 
-    text-align:center;
+/* LABEL */
+.fractal-control label {
+    color: var(--text-secondary);
 
-    color:
-    rgba(255,255,255,0.8);
+    font-size: 0.85rem;
 
-    font-size:0.85rem;
+    text-transform: capitalize;
+
+    flex: 1;
+}
+
+/* VALUE */
+.fractal-control span {
+    min-width: 2.5rem;
+
+    text-align: center;
+
+    color: var(--text-primary);
+
+    font-size: 0.85rem;
+}
+
+/* RANGE */
+.fractal-control input[type="range"] {
+    flex: 2;
+
+    accent-color: var(--accent-primary);
+}
+
+/* CHECKBOX */
+.fractal-control input[type="checkbox"] {
+    transform: scale(1.2);
+    accent-color: var(--accent-primary);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding-top: 0.75rem;
+
+  animation: controlsFade 180ms ease-out;
+}
+
+@keyframes controlsFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+    .fractal-controls {
+        padding: 0.75rem;
+    }
+
+    .fractal-control {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .fractal-control input[type="range"] {
+        width: 100%;
+        flex: unset;
+    }
+
+    .fractal-control span {
+        align-self: flex-end;
+    }
 }

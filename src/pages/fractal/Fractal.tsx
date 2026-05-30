@@ -13,6 +13,8 @@ import FractalControls from "../../components/elements/fractal-controls/FractalC
 import { get_fractal } from "../../utils/get_fractal"
 import { get_fractal_entry } from "../../utils/get_fractal_entry"
 import { create_fractal_state } from "../../utils/create_fractal_state"
+import Breadcrumbs from "../../components/elements/breadcrumbs/Breadcrumbs"
+import type { ControlValueMap } from "../../types/FractalControl"
 
 marked.use(
     katex({
@@ -83,7 +85,7 @@ export default function Fractal(){
     )
     const set_control = (
         key: string,
-        value: number | string
+        value: ControlValueMap[keyof ControlValueMap]
     ) => {
         set_state(prev => ({
             ...prev,
@@ -95,7 +97,12 @@ export default function Fractal(){
         <main className="fractal-page">
 
             <div className="fractal-container">
-
+                <Breadcrumbs
+                    paths={[
+                        { name: "Home", href: "/" },
+                        { name: fractal.title }
+                    ]}
+                />
                 <div className="fractal-header">
 
                     <h1 className="fractal-title">

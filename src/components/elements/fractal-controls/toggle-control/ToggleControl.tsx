@@ -1,40 +1,34 @@
 import type { FractalControl } from "../../../../types/FractalControl"
 
-export function ColorControl (
+export function ToggleControl(
     control: Extract<
         FractalControl,
-        { type: "color" }
+        { type: "toggle" }
     >,
-    state: Record<string, string>,
-    set_control: (key: string, value: string) => void
+    state: Record<string, boolean>,
+    set_control: (key: string, value: boolean) => void
 ) {
+    const value = Boolean(state[control.key])
 
     return (
         <div
             key={control.key}
             className="fractal-control"
         >
-
             <label>
                 {control.key}
             </label>
 
             <input
-                type="color"
-                value={
-                    String(
-                        state[control.key]
-                    )
-                }
+                type="checkbox"
+                checked={value}
                 onChange={e =>
                     set_control(
                         control.key,
-                        e.target.value
+                        e.target.checked
                     )
                 }
             />
-
         </div>
     )
-
 }

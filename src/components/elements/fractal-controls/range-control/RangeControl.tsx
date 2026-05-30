@@ -1,15 +1,12 @@
-import type { FractalControl } from "../../../../types/FractalControl"
+import type { FractalControl} from "../../../../types/FractalControl"
 
 export function RangeControl(
     control: Extract<
         FractalControl,
         { type: "range" }
     >,
-    state: Record<string, number | string>,
-    set_control: (
-        key: string,
-        value: number | string
-    ) => void
+    state: Record<string, number>,
+    set_control: (key: string, value: number) => void
 ) {
 
     return (
@@ -26,7 +23,7 @@ export function RangeControl(
                 type="range"
                 min={control.min}
                 max={control.max}
-                value={state[control.key]}
+                value={Number(state[control.key])}
                 onChange={e =>
                     set_control(
                         control.key,
