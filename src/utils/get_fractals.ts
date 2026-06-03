@@ -4,8 +4,9 @@ import type { Fractal } from "../types/Fractal"
 const fractal_files = import.meta.glob(
     "../content/fractals/*.md",
     {
-        eager:true,
-        as:"raw"
+        eager: true,
+        query: "?raw",
+        import: "default"
     }
 )
 
