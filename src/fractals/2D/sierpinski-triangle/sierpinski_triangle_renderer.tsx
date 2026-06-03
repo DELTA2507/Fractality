@@ -1,3 +1,4 @@
+import type { Point } from "../../../types/Geometry"
 import { generate_sierpinski_triangle } from "./sierpinski_triangle_generator"
 
 type SierpinskiTriangleRendererProps = {
@@ -21,7 +22,7 @@ export default function SierpinskiTriangleRenderer({iterations, color, wireframe
         triangles.map((triangle, index) => {
 
           const points = triangle
-            .map(p => `${p.x},${p.y}`)
+            .map((p: Point) => `${p.x},${p.y}`)
             .join(" ")
 
           return is_wireframe ? (
