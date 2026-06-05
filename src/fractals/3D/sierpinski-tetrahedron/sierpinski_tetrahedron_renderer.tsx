@@ -2,7 +2,7 @@ import { Canvas } from "@react-three/fiber"
 import { OrbitControls } from "@react-three/drei"
 
 import { generate_sierpinski_tetrahedron } from "./sierpinski_tetrahedron_generator"
-import TetrahedronMesh from "./tetrahedron_mesh"
+import TetrahedronMesh from "./sierpinski_tetrahedron_mesh"
 
 type SierpinskiTetrahedronRendererProps = {
     iterations: number

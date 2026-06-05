@@ -15,9 +15,17 @@ export type Triangle = [
     Point
 ]
 
+export type Triangle3D = [
+    Point3D,
+    Point3D,
+    Point3D
+]
+
 export type Tetrahedron = [
     Point3D,
     Point3D,
     Point3D,
     Point3D
 ]
+
+export type Polyline = Point[]
