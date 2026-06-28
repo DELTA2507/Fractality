@@ -34,6 +34,7 @@
 }
 
 .fractal-preview-panel{
+    position:relative;
     width:100%;
     height:clamp(250px,35vw,450px);
     overflow:hidden;

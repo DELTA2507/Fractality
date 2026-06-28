@@ -59,7 +59,7 @@ export const fractal_registry: FractalRegistry = {
                     key: "iterations",
                     min: 0,
                     max: 6,
-                    default: 5
+                    default: 3
                 }
             ],
             appearance: [

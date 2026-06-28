@@ -23,6 +23,7 @@ export default function SierpinskiTetrahedronRenderer({
 
     return(
         <Canvas
+            gl={{ preserveDrawingBuffer: true }}
             camera={{
                 position: [4, 4, 4],
                 fov: 30,
